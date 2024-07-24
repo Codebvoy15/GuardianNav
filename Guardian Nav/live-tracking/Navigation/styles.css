@@ -1,0 +1,143 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('tkm.jpeg.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.39);
+}
+
+.app-container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+}
+
+.logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 70px;
+            height: auto;
+        }
+
+header {
+    margin-bottom: 20px;
+}
+
+
+header h1 {
+    font-size: 2.5em;
+    color: #eb0a1e;
+    margin: 0;
+}
+
+header h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0 20px 0;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.634);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    outline: none;
+    width: 100%;
+    max-width: 300px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.location-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-top: 20px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.location-button:hover {
+    background-color: #72ad7f;
+}
+
+.location-output {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.64);
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.car {
+    background-image: url('car.png');
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: calc(50% - 15px);
+    left: -60px;
+    animation: drive 2s linear forwards;
+}
+
+@font-face {
+    font-family: 'Toyota';
+    src: url('/Users/sachinkumar/Desktop/TKMGMAP/Fonts/Toyota/avenir lt std black.otf') format('otf'),
+         url('/Users/sachinkumar/Desktop/TKMGMAP/Fonts/Toyota/avenir lt std black.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes drive {
+    from { transform: translateX(-100px); }
+    to { transform: translateX(calc(100vw + 60px)); }
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    margin-top: 20px;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKM MARGA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+
+        .geofence-status {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .car {
+            width: 50px;
+            height: 30px;
+            background: url('car-icon.png') no-repeat center center;
+            background-size: contain;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <img src="image.png" alt="Logo" class="logo">
+
+        <div class="header-container">
+            <header>
+                <h1>TKM MARGA</h1>
+            </header>
+        </div>
+
+
+
+        <div class="container">
+            <div class="input-group">
+
+                <label for="places-dropdown">Select a place to navigate to:</label>
+                <select id="places-dropdown">
+                    <option value="12.786225,77.419876">Fortuner Canteen</option>
+                    <option value="12.78672,77.42115">IS Office</option>
+                    <option value="12.784083,77.416237">Parking</option>
+                    <option value="12.7828,77.4138">Gate 2</option>
+                    <option value="12.781890053934504,77.4150550214473">Gate 3</option>
+                    <option value="12.78298978870643,77.41555230010954">Bus stop</option>
+                    <option value="12.78216,77.41786">Qualis Canteen</option>
+                    <option value="12.78319,77.41324">Gate 1</option>
+                    <option value="12.781856610718322,77.41862885142075">P1 Main Office</option>
+                    <option value="12.783185088933166,77.41664789825671">Shuttle Bus Yard</option>
+                    <option value="12.784806742235183,77.41969710710161">P2 Reception</option>
+                </select>
+                <button onclick="navigate()">Navigate</button>
+                <div class="car"></div>
+            </div>
+            <button id="show-location-btn" class="location-button" onclick="showCurrentLocation()">Show Current
+                Location</button>
+            <div id="location-output" class="location-output"></div>
+            <div id="geofence-status" class="geofence-status">Geofence Status: Inside</div>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="navigation.js"></script>
+</body>
+
+</html>

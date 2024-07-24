@@ -1,0 +1,147 @@
+// const userTable = document.getElementById('user-table').getElementsByTagName('tbody')[0];
+
+// // WebSocket connection to receive location updates
+// const socket = new WebSocket('ws://localhost:3030'); // Make sure this URL matches your WebSocket server
+
+// socket.onopen = function() {
+//     console.log('WebSocket connection established');
+// };
+
+// socket.onclose = function() {
+//     console.log('WebSocket connection closed');
+// };
+
+// socket.onmessage = function(event) {
+//     const data = JSON.parse(event.data);
+//     const { userId, lat, lng, timestamp } = data;
+
+//     // Update the table with new user data
+//     let row = document.getElementById(`user-${userId}`);
+//     if (!row) {
+//         row = userTable.insertRow();
+//         row.id = `user-${userId}`;
+
+//         const userIdCell = row.insertCell(0);
+//         const latCell = row.insertCell(1);
+//         const lngCell = row.insertCell(2);
+//         const timestampCell = row.insertCell(3);
+
+//         userIdCell.textContent = userId;
+//         latCell.textContent = lat;
+//         lngCell.textContent = lng;
+//         timestampCell.textContent = new Date(timestamp).toLocaleString();
+//     } else {
+//         row.cells[1].textContent = lat;
+//         row.cells[2].textContent = lng;
+//         row.cells[3].textContent = new Date(timestamp).toLocaleString();
+//     }
+// };
+
+// // Handle errors
+// socket.onerror = function(error) {
+//     console.error('WebSocket Error: ', error);
+// };
+
+// const userTable = document.getElementById('user-table').getElementsByTagName('tbody')[0];
+
+// // WebSocket connection to receive location updates
+// const socket = new WebSocket('ws://localhost:3030'); // Make sure this URL matches your WebSocket server
+
+// socket.onopen = function() {
+//     console.log('WebSocket connection established');
+// };
+
+// socket.onclose = function() {
+//     console.log('WebSocket connection closed');
+// };
+
+// socket.onmessage = function(event) {
+//     const data = JSON.parse(event.data);
+//     const { userId, lat, lng, timestamp } = data;
+
+//     // Update the table with new user data
+//     let row = document.getElementById(`user-${userId}`);
+//     if (!row) {
+//         row = userTable.insertRow();
+//         row.id = `user-${userId}`;
+
+//         const userIdCell = row.insertCell(0);
+//         const latCell = row.insertCell(1);
+//         const lngCell = row.insertCell(2);
+//         const timestampCell = row.insertCell(3);
+
+//         userIdCell.textContent = userId;
+//         latCell.textContent = lat;
+//         lngCell.textContent = lng;
+//         timestampCell.textContent = new Date(timestamp).toLocaleString();
+//     } else {
+//         row.cells[1].textContent = lat;
+//         row.cells[2].textContent = lng;
+//         row.cells[3].textContent = new Date(timestamp).toLocaleString();
+//     }
+
+//     updateHeatmap(userId, lat, lng); // Update heatmap with new location
+// };
+
+// // Handle errors
+// socket.onerror = function(error) {
+//     console.error('WebSocket Error: ', error);
+// };
+
+
+const userTable = document.getElementById('user-table').getElementsByTagName('tbody')[0];
+
+// WebSocket connection to receive location updates
+const socket = new WebSocket('ws://localhost:3030'); // Make sure this URL matches your WebSocket server
+
+socket.onopen = function() {
+    console.log('WebSocket connection established');
+};
+
+socket.onclose = function() {
+    console.log('WebSocket connection closed');
+};
+
+socket.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+    const { userId, lat, lng, timestamp } = data;
+
+    // Update the table with new user data
+    let row = document.getElementById(`user-${userId}`);
+    if (!row) {
+        row = userTable.insertRow();
+        row.id = `user-${userId}`;
+
+        const userIdCell = row.insertCell(0);
+        const latCell = row.insertCell(1);
+        const lngCell = row.insertCell(2);
+        const timestampCell = row.insertCell(3);
+        const viewMapCell = row.insertCell(4); // New cell for the button
+
+        userIdCell.textContent = userId;
+        latCell.textContent = lat;
+        lngCell.textContent = lng;
+        timestampCell.textContent = new Date(timestamp).toLocaleString();
+
+        // Create the "View on Map" button
+        const viewMapButton = document.createElement('button');
+        viewMapButton.textContent = 'View on Map';
+        viewMapButton.className = 'view-map-button';
+        viewMapButton.onclick = function() {
+            window.open(`https://www.google.com/maps?q=${lat},${lng}`, '_blank');
+        };
+
+        viewMapCell.appendChild(viewMapButton);
+    } else {
+        row.cells[1].textContent = lat;
+        row.cells[2].textContent = lng;
+        row.cells[3].textContent = new Date(timestamp).toLocaleString();
+    }
+
+    updateHeatmap(userId, lat, lng); // Update heatmap with new location
+};
+
+// Handle errors
+socket.onerror = function(error) {
+    console.error('WebSocket Error: ', error);
+};

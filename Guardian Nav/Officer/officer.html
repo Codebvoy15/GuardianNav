@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Tracking</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0e11388e;
+            color: #333;
+            position: relative;
+            /* Added for logo positioning */
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a4a4a;
+            margin: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            gap: 20px;
+        }
+
+        .table-container {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .heatmap-container {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .view-map-button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .view-map-button:hover {
+            background-color: #0056b3;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 70px;
+            height: auto;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('Officer/bg.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Add logo image here -->
+    <img src="image.png" alt="Logo" class="logo">
+
+
+    <h1>Live User Tracking</h1>
+    <div class="container">
+        <div class="table-container">
+            <table id="user-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>Timestamp</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="heatmap-container" id="heatmap">
+             Heatmap will be rendered here -->
+
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="officer-script.js"></script>
+</body>
+
+</html>
