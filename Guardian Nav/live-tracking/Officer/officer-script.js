@@ -31,7 +31,7 @@ function updateLocationList(userId, lat, lng) {
 function getLocationName(lat, lng) {
     for (const [name, [locLat, locLng]] of Object.entries(locations)) {
         const distance = getDistanceFromLatLonInMeters(lat, lng, locLat, locLng);
-        if (distance < 100) { // Assuming a 100m radius for location accuracy
+        if (distance < 100) { 
             return name;
         }
     }
@@ -48,17 +48,17 @@ function renderLocationList() {
 }
 
 function getDistanceFromLatLonInMeters(lat1, lon1, lat2, lon2) {
-    const R = 6371000; // Radius of the earth in meters
+    const R = 6371000; 
     const dLat = (lat2 - lat1) * Math.PI / 180;
     const dLon = (lon2 - lon1) * Math.PI / 180;
     const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
               Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
               Math.sin(dLon / 2) * Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c; // Distance in meters
+    return R * c; 
 }
 
-const socket = new WebSocket('ws://localhost:3030'); // Make sure this URL matches your WebSocket server
+const socket = new WebSocket('ws://localhost:3030'); 
 
 socket.onopen = function() {
     console.log('WebSocket connection established');
@@ -72,7 +72,7 @@ socket.onmessage = function(event) {
     const data = JSON.parse(event.data);
     const { userId, lat, lng, timestamp } = data;
 
-    // Update the table with new user data
+    
     let row = document.getElementById(`user-${userId}`);
     if (!row) {
         row = userTable.insertRow();
@@ -103,10 +103,10 @@ socket.onmessage = function(event) {
         row.cells[3].textContent = new Date(timestamp).toLocaleString();
     }
 
-    updateLocationList(userId, lat, lng); // Update location list with new user data
+    updateLocationList(userId, lat, lng); 
 };
 
-// Handle errors
+
 socket.onerror = function(error) {
     console.error('WebSocket Error: ', error);
 };
