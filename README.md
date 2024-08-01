@@ -30,7 +30,6 @@
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/)
-- Firebase account
 
 ### Installation Steps
 
