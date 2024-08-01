@@ -89,34 +89,6 @@
 4. Use the "Show Current Location" button to display the current location.
 5. The system will automatically handle geofencing alerts and live tracking updates can be viewed by the admin.
 
-## Contributing
-
-We welcome contributions from the community. To contribute:
-
-1. Fork the repository.
-2. Create a new branch:
-
-    \`\`\`bash
-    git checkout -b feature/YourFeatureName
-    \`\`\`
-
-3. Make your changes.
-4. Commit your changes:
-
-    \`\`\`bash
-    git commit -m 'Add a feature'
-    \`\`\`
-
-5. Push to the branch:
-
-    \`\`\`bash
-    git push origin feature/YourFeatureName
-    \`\`\`
-
-6. Open a pull request.
-
-
-
 ## Contact
 
 For any questions or support, please open an issue in the repository or contact the project maintainer:
