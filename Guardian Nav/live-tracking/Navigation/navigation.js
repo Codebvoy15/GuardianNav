@@ -26,26 +26,6 @@ function updateUserLocation(userId, lat, lng) {
 
     updateUserTable(userId, lat, lng);
 }
-// FUNCTION TO UPDATE TABLE
-
-// function updateUserTable(userId, lat, lng) {
-//     const tableBody = document.getElementById('user-table').querySelector('tbody');
-//     const timestamp = new Date().toLocaleString();
-//     let row = document.getElementById(`user-${userId}`);
-
-//     if (row) {
-//         row.cells[1].innerText = lat;
-//         row.cells[2].innerText = lng;
-//         row.cells[3].innerText = timestamp;
-//     } else {
-//         row = tableBody.insertRow();
-//         row.id = `user-${userId}`;
-//         row.insertCell(0).innerText = userId;
-//         row.insertCell(1).innerText = lat;
-//         row.insertCell(2).innerText = lng;
-//         row.insertCell(3).innerText = timestamp;
-//     }
-// }
 
 function updateUserTable(userId, lat, lng) {
     const tableBody = document.getElementById('user-table').querySelector('tbody');
@@ -59,7 +39,7 @@ function updateUserTable(userId, lat, lng) {
         timestamp
     };
 
-    // Save data to local storage
+    // Saves data to local storage
     const existingData = JSON.parse(localStorage.getItem('userData')) || {};
     existingData[userId] = userData;
     localStorage.setItem('userData', JSON.stringify(existingData));
@@ -92,8 +72,6 @@ window.onload = function() {
         row.insertCell(3).innerText = timestamp;
     });
 };
-
-
 
 const ws = new WebSocket('ws://localhost:3030');
 
