@@ -39,7 +39,6 @@ function updateUserTable(userId, lat, lng) {
         timestamp
     };
 
-    // Saves data to local storage
     const existingData = JSON.parse(localStorage.getItem('userData')) || {};
     existingData[userId] = userData;
     localStorage.setItem('userData', JSON.stringify(existingData));
